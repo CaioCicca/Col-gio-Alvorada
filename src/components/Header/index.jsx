@@ -1,15 +1,18 @@
-import { View, Image} from "react-native";
+import { View, Image, TouchableOpacity, ImageBackground } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 import styles from "./styles";
 
-import TouchButton from '../TouchButton'
-
 const Header = () => {
+  const navigation = useNavigation();
   return (
     <View style={styles.header}>
-      <TouchButton route='Home' title='Home'>
+      <Image source={require('../../../assets/a.png')} style={styles.fundo} />
+      <TouchableOpacity
+        onPress={() => navigation.navigate('Home')}
+      >
         <Image source={require('../../../assets/logo.png')} style={styles.logo} />
-      </TouchButton>
+      </TouchableOpacity>
     </View>
   );
 };

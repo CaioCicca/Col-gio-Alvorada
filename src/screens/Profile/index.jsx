@@ -1,27 +1,26 @@
-import { Text, View } from "react-native";
+import { Text, View, Image } from "react-native";
 
 import styles from "./styles";
 import Title from "../../components/Title";
+import Header from "../../components/Header";
 import TouchButton from "../../components/TouchButton";
+import { perfil } from "../../data/Perfil";
 
-export default function Profile({ route }) {
-  const { data } = route.params;
+export default function Profile() {
 
   return (
     <View style={styles.container}>
-      <Title title="Profile" />
-
-      <TouchButton route="Home" title="Go to Home" />
-
-      <TouchButton route="Category" title="Go to Category" />
-
+      <Header />
       <View style={styles.user}>
-        <Title title="User" />
-        <Text style={styles.text}>{data.name}</Text>
-        <Text style={styles.text}>{data.email}</Text>
-        <Text style={styles.text}>{data.phone}</Text>
-        <Text style={styles.text}>{data.address.city}</Text>
-        <Text style={styles.text}>{data.address.state}</Text>
+        <View style={styles.userImage}>
+          <Image source={require('../../../assets/eu.jpeg')} style={styles.image}/>
+        </View>
+        <View style={styles.userText}>
+          <Text style={styles.name}>{perfil.nome}</Text>
+          <Text style={styles.email}>{perfil.idade}</Text>
+          <Text style={styles.email}>{perfil.email}</Text>
+          <Text style={styles.name}>{perfil.telefone}</Text>
+        </View>
       </View>
     </View>
   );
