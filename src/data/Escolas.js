@@ -1,4 +1,4 @@
-export const escolas = {
+export const escola = {
   nome:'Colégio Alvorada - Curitiba',
   corPrimaria:'#274696',
   corSecundaria:'#3B6DDB',

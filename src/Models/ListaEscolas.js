@@ -1,3 +1,7 @@
+import { escola } from "../data/Escolas";
+import Escola from "./Escola";
+
+
 class Lista {
     constructor() {
         this.lista = [];
@@ -42,3 +46,10 @@ class Lista {
         this.lista = this.lista.filter(item =>  item.id === escola.id)
     }
 }
+
+const lista = new Lista();
+const novaEscola = new Escola(escola.nome, escola.date, escola.corPrimaria, escola.corSecundaria, escola.quantidadeFuncionarios, escola.capacidadeAlunosPorAno, escola.quantidadeTurmas, escola.endereco, escola.telefone, escola.email, escola.responsavel);
+
+lista.adicionarEscola(novaEscola);
+
+export default lista;
