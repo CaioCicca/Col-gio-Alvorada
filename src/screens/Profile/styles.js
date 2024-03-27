@@ -4,14 +4,14 @@ const styles = StyleSheet.create({
   user: {
     display: "flex",
     flexDirection: "row",
-    gap: 20,
+    gap: 15,
     alignItems: "center",
     marginTop: 20,
     padding: 10,
     borderRadius: 5,
   },
-  text: {
-    fontSize: 16,
+  userText: {
+    top:-5, 
   },
   image:{
     width: 170,
@@ -20,7 +20,36 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     borderColor: "#274696",
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    marginTop: 10
+  },
+  nome:{
+    fontSize: 25,
+    fontWeight: "bold",
+    color: "#274696"
+  },
+  texto:{
+    fontSize: 16,
+  },
+  texto1:{
+    fontSize: 16,
+    color: "#274696",
+    fontWeight: "bold",
+  },
+  sobre:{
+    fontSize: 35,
+    color: "#274696",
+    fontWeight: "bold",
+    textAlign: "center",
+  },
+  texto2:{
+    fontSize: 20,
+    textAlign: "justify",
+    padding: 15
+  },
+  scroll:{
+    width: '100%',
+    height: 400,
   }
 });
 
