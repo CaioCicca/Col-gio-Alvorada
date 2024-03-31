@@ -3,12 +3,11 @@ import { View } from "react-native";
 import styles from "./styles";
 import Header from "../../components/Header";
 import Escolas from "../../components/Escolas";
-import escola from "../../data/Escolas";
+
 import lista from '../../Models/ListaEscolas'
 
 export default function Category(route) {
-  let { edit } = route.params;
-  let user = escola;
+  let { user, edit } = route.params;
 
   const [name, setName] = useState("");
   const [corPrimaria, setCorPrimaria] = useState('');
@@ -29,7 +28,7 @@ export default function Category(route) {
 
   useEffect(() => {
     if (edit) {
-      setName(user.name);
+      setName(user.nome);
       setCorPrimaria(user.corPrimaria);
       setCorSecundaria(user.corSecundaria);
       setQuantidadeFuncionarios(user.quantidadeFuncionarios);

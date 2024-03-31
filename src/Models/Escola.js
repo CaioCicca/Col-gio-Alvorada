@@ -1,5 +1,5 @@
 export default class Escola {
-    constructor(id, nome, corPrimaria, corSecundaria, quantidadeFuncionarios, capacidadeAlunosPorAno, quantidadeTurmas, endereco, telefone, email, responsavel) {
+    constructor(nome, corPrimaria, corSecundaria, quantidadeFuncionarios, capacidadeAlunosPorAno, quantidadeTurmas, endereco, telefone, email, responsavel) {
         this.id = this.randomID()
         this.nome = nome;
         this.date =  new Date(2024, 2, 18);

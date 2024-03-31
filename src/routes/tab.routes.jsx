@@ -4,7 +4,7 @@ import { Feather } from "@expo/vector-icons";
 import Home from "../screens/Home";
 import Profile from "../screens/Profile";
 import Category from "../screens/Category";
-import { perfil } from "../data/Perfil";
+import Escola from "../Models/Escola";
 
 const Tab = createBottomTabNavigator();
 
@@ -14,6 +14,7 @@ const TabRoutes = () => {
       <Tab.Screen
         name="Category"
         component={Category}
+        initialParams={{user: null, edit: false}}
         options={{
           tabBarIcon: ({ focused }) => (
             <Feather
