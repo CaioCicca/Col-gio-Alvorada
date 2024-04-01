@@ -1,21 +1,83 @@
 import { View, Image, ScrollView, Text } from "react-native";
+import { useEffect, useNavigation, useState } from "react";
 
 import styles from "./styles";
-import Title from "../../components/Title";
+import lista from "../../Models/ListaEscolas";
 import Header from "../../components/Header";
 
-export default function Home() {
+export default function Detalhes(id) {
+  const navigation = useNavigation();
+  const [allList, setAllList] = useState([]);
+
+  useEffect(() => {
+    const escola = lista.getLista();
+    setAllList(escola);
+  });
+
   return (
     <View style={styles.container}>
       <Header />
-      <ScrollView style={styles.scroll}>
-          <Image source={require('../../../assets/b.jpg')} style={styles.banner} />
-          <Image source={require('../../../assets/c.png')} style={styles.titulo} />
-          <Title title={'Bem-vindo ao Colégio Alvorada: Onde o Amanhecer do Conhecimento Começa!'}></Title>
-          <Text style={{fontSize:20, textAlign:'justify'}}>
-            É com imensa alegria que apresentamos o Colégio Alvorada, uma instituição educacional bilingue que abre suas portas para receber alunos e famílias em busca de excelência acadêmica e multiculturalidade. Localizado no coração de nossa comunidade, o Colégio Alvorada é mais do que uma escola; é um ambiente dinâmico e acolhedor, onde cada aluno é encorajado a explorar seu potencial máximo, enquanto se torna um cidadão do mundo. Fundado no início de 2024, o Colégio Alvorada orgulha-se de oferecer um currículo educacional enriquecido, que combina os mais altos padrões acadêmicos com uma abordagem intercultural. Nossa equipe de educadores altamente qualificados está empenhada em proporcionar experiências de aprendizagem estimulantes, que promovem o pensamento crítico, a criatividade e a colaboração. No Colégio Alvorada, a fluência em mais de um idioma não é apenas uma habilidade, mas sim um modo de vida. Nossos alunos têm a oportunidade de se envolver em um ambiente verdadeiramente bilingue, onde o inglês e o português são igualmente valorizados e integrados em todas as facetas do currículo.
-          </Text>
-      </ScrollView>
+        {allList.map((escola) => (
+          escola.id == id ? (
+        allList.map((escola) => (
+      <View key={escola.id}>
+        <View>
+          <Text>Nome:</Text>
+          <Text>{escola.nome}</Text>
+        </View>
+        <View>
+          <Text>Cor Primária:</Text>
+          <Text>{escola.corPrimaria}</Text>
+        </View>
+        <View>
+          <Text>Cor Secundária:</Text>
+          <Text>{escola.corSecundaria}</Text>
+        </View>
+        <View>
+          <Text>Quantidade de Funcionários:</Text>
+          <Text>{escola.quantidadeFuncionarios}</Text>
+        </View>
+        <View>
+          <Text>Capacidade de Alunos por ano:</Text>
+          <Text>{escola.capacidadeAlunosPorAno}</Text>
+        </View>
+        <View>
+          <Text>Quantidade de turmas:</Text>
+          <Text>{escola.quantidadeTurmas}</Text>
+        </View>
+        <View>
+          <Text>Bairro:</Text>
+          <Text>{escola.endereco.bairro}</Text>
+        </View>
+        <View>
+          <Text>Numero:</Text>
+          <Text>{escola.endereco.numero}</Text>
+        </View>
+        <View>
+          <Text>Cidade:</Text>
+          <Text>{escola.endereco.cidade}</Text>
+        </View>
+        <View>
+          <Text>Estado:</Text>
+          <Text>{escola.endereco.estado}</Text>
+        </View>
+        <View>
+          <Text>Telefone:</Text>
+          <Text>{escola.telefone}</Text>
+        </View>
+        <View>
+          <View>
+            <Text>Email:</Text>
+            <Text>{escola.email}</Text>
+          </View>
+          <Text>Responsavel:</Text>
+          <Text>{escola.responsavel}</Text>
+        </View>
+      </View>))) : (
+      <View>
+      <Text>Carregando...</Text>
+    </View>
+      )))}
     </View>
   );
 }

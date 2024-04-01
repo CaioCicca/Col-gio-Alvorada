@@ -1,12 +1,12 @@
-import { View } from "react-native";
+import { View, useState, useEffect, useNavigation } from "react-native";
 
 import styles from "./styles";
 import Header from "../../components/Header";
-import Escolas from "../../components/Escolas";
+import Escola from "../../Models/Escola";
 
 import lista from '../../Models/ListaEscolas'
 
-export default function Category(route) {
+export default function Category({route}) {
   let { user, edit } = route.params;
 
   const [name, setName] = useState("");
@@ -15,10 +15,10 @@ export default function Category(route) {
   const [quantidadeFuncionarios, setQuantidadeFuncionarios] = useState('');
   const [capacidadeAlunosPorAno, setCapacidadeAlunosPorAno] = useState('');
   const [quantidadeTurmas, setQuantidadeTurmas] = useState('');
-  const [bairro, setbairro] = useState('')
-  const [numero, setnumero] = useState('')
-  const [cidade, setcidade] = useState('')
-  const [estado, setestado] = useState('')
+  const [bairro, setbairro] = useState('');
+  const [numero, setnumero] = useState('');
+  const [cidade, setcidade] = useState('');
+  const [estado, setestado] = useState('');
   const [telefone, setTelefone] = useState('');
   const [email, setEmail] = useState('');
   const [responsavel, setResponsavel] = useState('');
@@ -78,6 +78,7 @@ export default function Category(route) {
   };
   return (
     <View style={styles.container}>
+      <Header/>
       <Title title={isUpdate ? "Editar Escola" : "Novo Escola"} />
       <TextInput
         placeholder="Digite o nome"
